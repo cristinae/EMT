@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/subversion/emt/!svn/ver/50/trunk/perl/bin
+END
+comandes.txt
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/subversion/emt/!svn/ver/43/trunk/perl/bin/comandes.txt
+END
+joinParsers.pl
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/subversion/emt/!svn/ver/50/trunk/perl/bin/joinParsers.pl
+END
+mockPhraseTable.pl
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/subversion/emt/!svn/ver/43/trunk/perl/bin/mockPhraseTable.pl
+END
+evaluate.pl
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/subversion/emt/!svn/ver/49/trunk/perl/bin/evaluate.pl
+END
+etiquetaOracle.pl
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/subversion/emt/!svn/ver/43/trunk/perl/bin/etiquetaOracle.pl
+END
+label2factorTT.pl
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/subversion/emt/!svn/ver/42/trunk/perl/bin/label2factorTT.pl
+END
+labelSegmentedTest.pl
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/subversion/emt/!svn/ver/50/trunk/perl/bin/labelSegmentedTest.pl
+END
+read_matxin_xml.pl
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/subversion/emt/!svn/ver/12/trunk/perl/bin/read_matxin_xml.pl
+END
+moses_SMatxinT.sh
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/subversion/emt/!svn/ver/50/trunk/perl/bin/moses_SMatxinT.sh
+END
+oracleBLEU.pl
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/subversion/emt/!svn/ver/51/trunk/perl/bin/oracleBLEU.pl
+END
+sistemaBLEU.pl
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/subversion/emt/!svn/ver/36/trunk/perl/bin/sistemaBLEU.pl
+END
+mockDecoder.pl
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/subversion/emt/!svn/ver/24/trunk/perl/bin/mockDecoder.pl
+END
+comandes3.txt
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/subversion/emt/!svn/ver/50/trunk/perl/bin/comandes3.txt
+END
+oracleTER.pl
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/subversion/emt/!svn/ver/36/trunk/perl/bin/oracleTER.pl
+END
+oracles.pl
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/subversion/emt/!svn/ver/36/trunk/perl/bin/oracles.pl
+END

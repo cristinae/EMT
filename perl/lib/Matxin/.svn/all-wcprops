@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/subversion/emt/!svn/ver/50/trunk/perl/lib/Matxin
+END
+HybridTable.pm
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/subversion/emt/!svn/ver/49/trunk/perl/lib/Matxin/HybridTable.pm
+END
+Syn.pm
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/subversion/emt/!svn/ver/12/trunk/perl/lib/Matxin/Syn.pm
+END
+Alternative.pm
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/subversion/emt/!svn/ver/50/trunk/perl/lib/Matxin/Alternative.pm
+END
+SegmentList.pm
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/subversion/emt/!svn/ver/12/trunk/perl/lib/Matxin/SegmentList.pm
+END
+Translation.pm
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/subversion/emt/!svn/ver/50/trunk/perl/lib/Matxin/Translation.pm
+END
+HybridPaths.pm
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/subversion/emt/!svn/ver/30/trunk/perl/lib/Matxin/HybridPaths.pm
+END
+NodeList.pm
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/subversion/emt/!svn/ver/12/trunk/perl/lib/Matxin/NodeList.pm
+END
+Segment.pm
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/subversion/emt/!svn/ver/40/trunk/perl/lib/Matxin/Segment.pm
+END
+Sentence.pm
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/subversion/emt/!svn/ver/34/trunk/perl/lib/Matxin/Sentence.pm
+END
+Node.pm
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/subversion/emt/!svn/ver/24/trunk/perl/lib/Matxin/Node.pm
+END
+Systems.pm
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/subversion/emt/!svn/ver/50/trunk/perl/lib/Matxin/Systems.pm
+END
+Chunk.pm
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/subversion/emt/!svn/ver/42/trunk/perl/lib/Matxin/Chunk.pm
+END
+Common.pm
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/subversion/emt/!svn/ver/45/trunk/perl/lib/Matxin/Common.pm
+END

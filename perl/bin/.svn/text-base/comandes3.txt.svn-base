@@ -1,0 +1,113 @@
+# genero el test i la TT anotat
+# JA NO a Translation.pm canvio 'source' per 'indexed_source'
+# a Alternative.pm  translation => Matxin::Common::get_attribute_value($ALTERNATIVE, 'translation') Analyzed
+
+# Development, taules sense traça per passar-li al MERT
+
+perl  mockPhraseTable.pl -max_rbmt 1 -max_smt 1 -c 1 -p 1 -t 0 -o /home/cristinae/pln/sistemes/matxin/ibms1.1.c/devADMIN_M/ -v ../../data/SMatxinT/ADMINdevel.2011_12_21.SMatxinT.xml
+
+perl  mockPhraseTable.pl -max_rbmt 1 -max_smt 1 -c 1 -p 1 -t 0 -o /home/cristinae/pln/sistemes/matxin/chunks1.1.c/devADMINmalt/ -v ../../data/SMatxinT/ADMINdevel.2012_05_02.SMatxinT.malt.xml
+
+perl  mockPhraseTable.pl -max_rbmt 1 -max_smt 1 -c 1 -p 1 -t 0 -o /home/cristinae/pln/sistemes/matxin/chunks1.1.cPost/testADMINdivid -v ../../data/SMatxinT/dividido/ADMINtest/unknown_0.2012_11_02.SMatxinT.xml
+
+
+
+# MERT general
+
+perl /home/cristinae/soft/mosesdecoder/scripts/training/mert-moses.pl --rootdir=/home/cristinae/soft/mosesdecoder/scripts  --mertdir=/home/cristinae/soft/mosesdecoder/bin  --working-dir=/home/cristinae/pln/sistemes/matxin/chunks1.1.c/devADMIN/tunings/t1 --nbest=50 --decoder-flags='-dl 0 -max-phrase-length 100'    /home/cristinae/pln/sistemes/matxin/chunks1.1.c/devADMIN/test.ADMINdevel.2013_02_20.SMatxinT /home/cristinae/pln/devSoft/emt/data/SMatxinT0/ADMINdevel.eu.tok  /home/cristinae/soft/mosesdecoder/bin/moses  ./model/moses.ini
+
+
+perl /home/cristinae/soft/mosesdecoder/scripts/training/mert-moses-noDist.pl --rootdir=/home/cristinae/soft/mosesdecoder/scripts  --mertdir=/home/cristinae/soft/mosesdecoder/bin  --working-dir=/home/cristinae/pln/sistemes/matxin/chunks1.1.c/devADMIN/tuningsND/t1 --nbest=50 --decoder-flags='-dl 0 -max-phrase-length 100'    /home/cristinae/pln/sistemes/matxin/chunks1.1.c/devADMIN/test.ADMINdevel.2013_02_20.SMatxinT /home/cristinae/pln/devSoft/emt/data/SMatxinT0/ADMINdevel.eu.tok  /home/cristinae/soft/mosesdecoder/bin/moses  ./model/moses.ini
+
+
+
+perl /home/cristinae/soft/mosesdecoder/scripts/training/mert-moses.pl --rootdir=/home/cristinae/soft/mosesdecoder/scripts  --mertdir=/home/cristinae/soft/mosesdecoder/bin  --working-dir=/home/cristinae/pln/sistemes/matxin/chunks1.1.c/devADMINlmPOS/tuning1f --nbest=50 --decoder-flags='-dl 0 -max-phrase-length 100'    /home/cristinae/pln/sistemes/matxin/chunks1.1.c/devADMINlmPOS/test.ADMINdevel.2013_02_20.SMatxinT /home/cristinae/pln/devSoft/emt/data/SMatxinT0/ADMINdevel.eu.tok  /home/cristinae/soft/mosesdecoder/bin/moses  ./model/moses.1f.ini
+
+# mert simultani freeling and malt
+
+mkdir ./tuningsmix/t1
+cp ./tunings/t1/features.list ./tuningsmix/t1/.
+perl /home/cristinae/soft/mosesdecoder/scripts/training/mert-moses-4SMatxinT.pl --rootdir=/home/cristinae/soft/mosesdecoder/scripts  --mertdir=/home/cristinae/soft/mosesdecoder/bin  --working-dir=/home/cristinae/pln/sistemes/matxin/chunks1.1.c/devADMIN/tuningsmix/t2 --nbest=50 --decoder-flags='-dl 0 -max-phrase-length 100'  --no-filter-phrase-table  /home/cristinae/pln/sistemes/matxin/chunks1.1.c/devADMIN/test.ADMINdevel.2013_05_16.SMatxinT.freeling /home/cristinae/pln/devSoft/emt/data/SMatxinT0/ADMINdevel.eu.tok   /home/cristinae/pln/devSoft/emt/perl/bin/moses_SMatxinT_original.sh   ./model/moses.ini
+
+
+
+### post-edited
+perl /home/cristinae/soft/mosesdecoder/scripts/training/mert-moses.pl --rootdir=/home/cristinae/soft/mosesdecoder/scripts  --mertdir=/home/cristinae/soft/mosesdecoder/bin  --working-dir=/home/cristinae/pln/sistemes/matxin/chunks1.1.cPost/dev/tuningSMT --nbest=50 --decoder-flags='-dl 0 -max-phrase-length 100'    /home/cristinae/pln/sistemes/matxin/chunks1.1.cPost/dev/test.PostEditedRefs.2012_12_03.SMatxinT /home/cristinae/pln/devSoft/emt/data/SMatxinT0/PostEditedRefs.eu.tok.SMT.  /home/cristinae/soft/mosesdecoder/bin/moses  ./model/moses.ini
+
+#amb distorsio
+perl /home/cristinae/soft/mosesdecoder/scripts/training/mert-moses.pl --rootdir=/home/cristinae/soft/mosesdecoder/scripts  --mertdir=/home/cristinae/soft/mosesdecoder/bin  --working-dir=/home/cristinae/pln/sistemes/matxin/chunks1.1.cPostDist/devADMIN/tuning --nbest=50 --decoder-flags='-max-phrase-length 100'    /home/cristinae/pln/sistemes/matxin/chunks1.1.cPostDist/devADMIN/test.ADMINdevel.2012_12_03.SMatxinT /home/cristinae/pln/devSoft/emt/data/SMatxinT0/ADMINdevel.eu.tok  /home/cristinae/soft/mosesdecoder/bin/moses  ./model/moses.ini
+
+--continue 
+
+perl /home/cristinae/soft/mosesdecoder/scripts/training/mert-moses.pl --rootdir=/home/cristinae/soft/mosesdecoder/scripts  --mertdir=/home/cristinae/soft/mosesdecoder/bin  --working-dir=/home/cristinae/pln/sistemes/matxin/chunks1.1.c/devADMIN/tuningNoLM --activate-features='w_0,tm_0,tm_1,tm_2,tm_3,tm_4,tm_5,tm_6,tm_7,tm_8,tm_9,tm_10,tm_11,tm_12,tm_13,tm_14,tm_15,tm_16,tm_17'  --range=lm:0.005..0.005 --nbest=50 --decoder-flags='-dl 0'    /home/cristinae/pln/sistemes/matxin/chunks1.1.c/devADMIN/test.ADMINdevel.2012_11_02.SMatxinT /home/cristinae/pln/devSoft/emt/data/SMatxinT0/ADMINdevel.eu.tok  /home/cristinae/soft/mosesdecoder/bin/moses  /home/cristinae/pln/sistemes/matxin/chunks1.1.c/devADMIN/model/moses.ini
+
+perl /home/cristinae/soft/mosesdecoder/scripts/training/mert-moses.pl --rootdir=/home/cristinae/soft/mosesdecoder/scripts  --mertdir=/home/cristinae/soft/mosesdecoder/bin  --working-dir=/home/cristinae/pln/sistemes/matxin/chunks1.1.c/devADMIN/tuningNoLMmod --activate-features='w_0,tm_0,tm_1,tm_2,tm_3,tm_4,tm_5,tm_6,tm_7,tm_8,tm_9,tm_10,tm_11,tm_12,tm_13,tm_14,tm_15,tm_16,tm_17'  --range=lm:0.005..0.005 --nbest=50 --decoder-flags='-dl 0'    /home/cristinae/pln/sistemes/matxin/chunks1.1.c/devADMIN/test.ADMINdevel.2012_11_02.SMatxinT /home/cristinae/pln/devSoft/emt/data/SMatxinT0/ADMINdevel.eu.tok  /home/cristinae/soft/mosesdecoder/bin/moses  /home/cristinae/pln/sistemes/matxin/chunks1.1.c/devADMIN/model/mosesMod.ini
+
+
+
+
+# MIRA general 
+
+perl /home/cristinae/soft/mosesdecoder/scripts/training/mert-moses.pl --batch-mira --return-best-dev   --batch-mira-args='-C 0.001'    --rootdir=/home/cristinae/soft/mosesdecoder/scripts  --mertdir=/home/cristinae/soft/mosesdecoder/bin  --working-dir=/home/cristinae/pln/sistemes/matxin/chunks1.1.c/devADMIN/tuningMIRA0001  --nbest=50 --decoder-flags='-dl 0'    /home/cristinae/pln/sistemes/matxin/chunks1.1.c/devADMIN/test.ADMINdevel.2012_05_02.SMatxinT  /home/cristinae/pln/devSoft/emt/data/SMatxinT0/ADMINdevel.eu.tok  /home/cristinae/soft/mosesdecoder/bin/moses ./model/moses.ini
+
+# MERT Pos
+
+perl /home/cristinae/soft/moses/scripts/training/mert-moses-multi.pl --rootdir=/home/cristinae/soft/moses/scripts  --mertdir=/home/cristinae/soft/moses/mert  --working-dir=./tuningF_metric31  --nbest=50 --decoder-flags='-dl 0  -report-all-factors-in-n-best'  --sc-config "BLEU_0:3,BLEU_2:1"   /home/cristinae/pln/sistemes/matxin/ibms1.1.c/devADMIN_M/test.ADMINdevel.2011_12_21.SMatxinT  /home/cristinae/pln/devSoft/emt/data/SMatxinT0/ADMINdevel.eu.factor  /home/cristinae/soft/moses/moses-cmd/src/moses ./model/mosesMetrics.ini
+
+# MERT meteor
+
+perl  /home/cristinae/soft/moses/scripts/training/zmert-moses+meteor.pl orig/devel.es orig/devel.eu ~/moses-git/dist/bin/moses moses.ini --metric "Meteor other lowercase '.5 1 .5 .5' 'exact' '1' --joshuadir ~/joshua-1.3 --rootdir ~/moses-git/scripts --working-dir zmert-work
+
+# decoder
+
+/home/cristinae/soft/mosesdecoder/bin/moses -f moses.devADMIN.mert.ini -dl 0 -b 0  -include-alignment-in-n-best -max-phrase-length 100 -n-best-list ADMINtest.devADMIN.mertPL7.nbest1.SMatxinT.eutrad 1 distinct < test.ADMINtest.2012_11_02.SMatxinT > ADMINtest.devADMIN.mertPL7.SMatxinT.eutrad
+
+/home/cristinae/soft/mosesdecoder/bin/moses -f moses.devADMIN_M11.ini -dl 0 -b 0 -include-alignment-in-n-best  -n-best-list EITBtest.devADMIN_M11.nbest.SMatxinT.eutrad 1 distinct < test.EITBtest.2011_05_26.SMatxinT > EITBtest.devADMIN_M11.SMatxinT.eutrad
+
+/home/cristinae/soft/mosesdecoder/bin/moses -f moses.devADMIN_MTRf.ini -dl 0 -b 0  -include-alignment-in-n-best  -n-best-list NEWStest.devADMIN_MTRf.nbest.SMatxinT.eutrad 1 distinct < test.NEWStest.2011_05_26.SMatxinT > NEWStest.devADMIN_MTRf.SMatxinT.eutrad
+
+
+/home/cristinae/soft/mosesdecoder/bin/moses -f moses.devADMIN.mert.ini -include-alignment-in-n-best -max-phrase-length 100 -n-best-list ADMINtest.devADMIN.nbest1.SMatxinT.eutrad 1 distinct < test.ADMINtest.2012_11_02.SMatxinT > ADMINtest.devADMIN.SMatxinT.eutrad
+
+
+/home/cristinae/soft/mosesdecoder/bin/moses -f moses.dev.ini -include-alignment-in-n-best -max-phrase-length 100 -n-best-list ADMINtest.devADMIN.nbest1.SMatxinT.eutrad 1 distinct < test.ADMINtest.2012_11_02.SMatxinT > ADMINtest.devADMIN.SMatxinT.eutrad
+
+/home/cristinae/soft/mosesdecoder/bin/moses -f moses.devADMIN.mert.ini  -ttable-file "0 0 0 20 phrase-table.unknown_0.2012_11_02.SMatxinT" -include-alignment-in-n-best -max-phrase-length 100 -n-best-list ADMINtest0.devADMIN.nbest1.SMatxinT.eutrad 1 distinct < test.unknown_0.2012_11_02.SMatxinT > ADMINtest0.devADMIN.SMatxinT.eutrad
+
+/home/cristinae/soft/mosesdecoder/bin/moses -f /home/cristinae/pln/sistemes/matxin/chunks1.1.c/devADMIN/tunings/t1/moses.ini  -ttable-file "0 0 0 20 ../phrase-table.ADMINtest.2013_02_20.SMatxinT" - -max-phrase-length 100  < ../test.ADMINtest.2013_02_20.SMatxinT > ADMINtest0.devADMINt1.SMatxinT.eutrad
+
+
+
+
+# per al mix
+moses -f moses.mix1f.ini -max-phrase-length 100 -dl 0 -b 0  -n-best-list ADMINtestbase.devADMINfreeling.nbest1.SMatxinT.eutrad 1 distinct < test.ADMINtest.2013_02_20.SMatxinT.freeling > ADMINtestbase.devADMINfreeling.SMatxinT.eutrad
+
+perl /home/cristinae/pln/devSoft/emt/perl/bin/get1bestnbest.pl ADMINtestbase.devADMINfreeling.nbest1.SMatxinT.eutrad ADMINtestbase.devADMINmalt.nbest1.SMatxinT.eutrad
+
+# avalua
+
+perl /home/cristinae/pln/devSoft/emt/perl/bin/evaluate.pl ADMINtest.devADMIN.SMatxinT.eutrad
+
+
+
+# Oracles
+
+/home/cristinae/soft/mosesdecoder/bin/moses -f ../devADMIN/tunings/t3/moses.ini -b 0 -s 10000 -ttable-file "0 0 0 20 phrase-table.NEWStest.2013_05_16.SMatxinT" -include-alignment-in-n-best -max-phrase-length 100 -n-best-list NEWStest.devADMINt3.nbest10000.SMatxinT.eutrad 10000 distinct < test.NEWStest.2013_05_16.SMatxinT 
+
+/home/cristinae/soft/mosesdecoder/bin/moses -f ../devADMINbase/tunings/t1/moses.ini -b 0 -s 10000 -ttable-file "0 0 0 1 phrase-table.NEWStest.2013_05_16.SMatxinT" -include-alignment-in-n-best -max-phrase-length 100 -n-best-list NEWStestbase.devADMINt1.nbest10000.SMatxinT.eutrad 10000 distinct < test.NEWStest.2013_05_16.SMatxinT
+
+
+ perl /home/cristinae/pln/devSoft/emt/perl/bin/joinParsers.pl   NEWStest.devADMINMixt8freeling.nbest10000.SMatxinT.eutrad ../testNEWSmalt/NEWStest.devADMINMixt8malt.nbest10000.SMatxinT.eutrad
+
+
+
+
+/home/cristinae/pln/devSoft/emt/perl/bin/oracleBLEU.pl ADMINtest.devADMIN.nbest.SMatxinT.eutr
+
+
+# Etiquetat
+
+perl  mockPhraseTable.pl -max_rbmt 1 -max_smt 1 -c 1 -p 1 -t 1 -o /home/cristinae/pln/sistemes/matxin/chunks1.1.cPost/testNEWStraca/ -v ../../data/SMatxinT/PostEditedRefs.2012_12_03.SMatxinT.xml
+
+perl /home/cristinae/pln/devSoft/emt/perl/bin/labelSegmentedTest.pl 
+

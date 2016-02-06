@@ -1,0 +1,101 @@
+# Development, taules sense traça per passar-li al MERT
+
+perl  mockPhraseTable.pl -max_rbmt 1 -max_smt 1 -c 1 -p 1 -t 0 -o /home/cristina/pln/sistemes/matxin/ibms1.1.c/devADMINmalt/ -v ../../data/SMatxinT/ADMINdevel.2011_03_24.SMatxinT.malt.xml
+
+
+# MERT
+
+# MERT simultani de Freeling i MALT
+
+perl /home/cristina/soft/moses/trunk/scripts/training/mert-moses-new-9l.pl --rootdir=/home/cristina/soft/moses/trunk/scripts  --mertdir=/home/cristina/soft/moses/trunk/mert --working-dir=./tuning --nbest=50 --decoder-flags='-dl 0'  --lambdas='d:0,0-0 lm:1,0.5-1.5 tm:0.15,0-0.5;0.15,0-0.5;0.15,0-0.5;0.15,0-0.5;0.15,0-0.5;0.15,0-0.5;0.15,0-0.5;0.15,0-0.5;0,-0.5-0.5 w:0,-0.5-0.5'  --activate-features='lm,tm,w' --no-filter-phrase-table /home/cristina/pln/sistemes/matxin/ibms1.1.c/devEITB/test.EITBdevel.2011_05_26.SMatxinT  /home/cristina/pln/devSoft/emt/data/SMatxinT0/EITBdevel.eu.tok  /home/cristina/pln/devSoft/emt/perl/bin/moses_SMatxinT.sh ./model/moses.ini
+
+_______________
+
+
+perl /home/cristina/soft/moses/trunk/scripts/training/mert-moses-new-9l.pl --rootdir=/home/cristina/soft/moses/trunk/scripts  --mertdir=/home/cristina/soft/moses/trunk/mert --working-dir=./tuning_act --nbest=50 --decoder-flags='-dl 0'  --lambdas='d:0,0-0 lm:1,0.5-1.5 tm:0.15,0-0.5;0.15,0-0.5;0.15,0-0.5;0.15,0-0.5;0.15,0-0.5;0.15,0-0.5;0.15,0-0.5;0.15,0-0.5;0,-0.5-0.5 w:0,-0.5-0.5'  --activate-features='lm,tm,w'  /home/cristina/pln/sistemes/matxin/ibms1.1.c/devADMIN/test.ADMINdevel.2011_05_26.SMatxinT.1  /home/cristina/pln/devSoft/emt/data/SMatxinT0/ADMINdevel.eu.tok  /home/cristina/soft/moses/trunk/moses-cmd/src/moses ./model/moses.ini
+
+perl /home/cristina/soft/moses/trunk/scripts/training/mert-moses-new-7l.pl --rootdir=/home/cristina/soft/moses/trunk/scripts  --mertdir=/home/cristina/soft/moses/trunk/mert --working-dir=./tuning_act --nbest=50 --decoder-flags='-dl 0'  --lambdas='d:0,0-0 lm:1,0.5-1.5 tm:0.15,0-0.5;0.15,0-0.5;0.15,0-0.5;0.15,0-0.5;0.15,0-0.5;0.15,0-0.5;0,-0.5-0.5 w:0,-0.5-0.5'  --activate-features='lm,tm,w'  /home/cristina/pln/sistemes/matxin/ibms1.1.c/devEITB/test.EITBdevel.2011_03_24.SMatxinT.1  /home/cristina/pln/devSoft/emt/data/SMatxinT0/EITBdevel.eu.tok  /home/cristina/soft/moses/trunk/moses-cmd/src/moses ./model/moses.ini
+
+#nomes smt cd
+perl /home/cristina/soft/moses/trunk/scripts/training/mert-moses-new-7l.pl --rootdir=/home/cristina/soft/moses/trunk/scripts  --mertdir=/home/cristina/soft/moses/trunk/mert --working-dir=./tuning_act --nbest=50 --decoder-flags='-dl 0'  --lambdas='d:0,0-0 lm:1,0.5-1.5 tm:0.15,0-0.5;0.15,0-0.5;0.15,0-0.5;0.15,0-0.5;0,0-0;0,0-0;0,-0.5-0.5 w:0,-0.5-0.5'  --activate-features='lm,tm,w'  /home/cristina/pln/sistemes/matxin/ibms1.1.c/devADMINsmtcd/test.ADMINdevel.2011_03_24.SMatxinT.1  /home/cristina/pln/devSoft/emt/data/SMatxinT0/ADMINdevel.eu.tok  /home/cristina/soft/moses/trunk/moses-cmd/src/moses ./model/moses.ini
+
+# primers
+/home/cristina/soft/moses/trunk/scripts/training/mert-moses-new.pl --rootdir=/home/cristina/soft/moses/trunk/scripts  --mertdir=/home/cristina/soft/moses/trunk/mert --working-dir=./tuning --nbest=50 --decoder-flags='-dl 0'  /home/cristina/pln/sistemes/matxin/concens1.5/devADMIN/test.ADMINdevel.SMatxinT.1  /home/cristina/pln/devSoft/emt/data/SMatxinT/ADMINdevel.eu.tok   /home/cristina/soft/moses/trunk/moses-cmd/src/moses ./model/moses.ini
+
+/home/cristina/soft/moses/trunk/scripts/training/mert-moses-new.pl --rootdir=/home/cristina/soft/moses/trunk/scripts  --mertdir=/home/cristina/soft/moses/trunk/mert --working-dir=./tuning --nbest=50 --decoder-flags='-dl 0'  /home/cristina/pln/sistemes/matxin/concens1.5/devEITB/test.EITBdevel.SMatxinT.1  /home/cristina/pln/devSoft/emt/data/SMatxinT/EITBdevel.eu.tok   /home/cristina/soft/moses/trunk/moses-cmd/src/moses ./model/moses.ini
+
+# TT PER AL TEST
+
+perl  mockPhraseTable.pl -max_rbmt 0 -max_smt 1 -c 1 -p 1 -t 1 -o /home/cristina/pln/sistemes/matxin/ibms1.1.c/testADMINsmtcd/ -v ../../data/SMatxinT/ADMINtest.2010_11_30.SMatxinT.xml
+
+perl  mockPhraseTable.pl -max_rbmt 1 -max_smt 5 -c 0 -p 1 -t 1 -o /home/cristina/pln/sistemes/matxin/concens1.5/testADMIN/ -v ../../data/SMatxinT/ADMINtest.2010_11_30.SMatxinT.xml
+
+perl  mockPhraseTable.pl -max_rbmt 1 -max_smt 1 -c 1 -p 1 -t 1 -o /home/cristina/pln/sistemes/matxin/concens1.1.c.both/testEITB/ -v ../../data/SMatxinT/EITBtest.2010_11_30.SMatxinT.xml
+
+
+# DECODING
+
+moses -f moses.devADMIN.ini -dl 0 -b 0 < test.ADMINtest.SMatxinT.1 > ADMINtest.devADMINprovab0.SMatxinT.eutrad
+
+moses -f moses.devADMIN.ini -report-segmentation < test.ADMINtest.SMatxinT.1 > ADMINtestSEG.devADMIN.SMatxinT.eutrad
+moses -f moses.devEITB.ini < test.ADMINtest.SMatxinT.1 > ADMINtest.devEITB.SMatxinT.eutrad
+
+moses -f moses.devADMIN.ini < test.EITBtest.SMatxinT.1 > EITBtest.devADMIN.SMatxinT.eutrad
+moses -f moses.devEITB.ini < test.EITBtest.SMatxinT.1 > EITBtest.devEITB.SMatxinT.eutrad
+
+moses -f moses.devADMIN.ini < test.NEWStest.SMatxinT.1 > NEWStest.devADMIN.SMatxinT.eutrad
+moses -f moses.devEITB.ini < test.NEWStest.SMatxinT.1 > NEWStest.devEITB.SMatxinT.eutrad
+
+moses -f moses.devADMIN.ini  -report-all-factors  -constraint  ADMINtest.devADMIN.oracleBLEU < test.ADMINtest.2011_05_26.SMatxinT.1 > ADMINtest.devADMIN.oracle.label
+
+# EVALUACIO
+
+/home/cristina/pln/devSoft/emt/perl/bin/evaluate.pl ADMINtest.devADMIN.SMatxinT.eutrad
+
+
+# ORACLE
+
+/home/cristina/pln/devSoft/emt/perl/bin/oracleBLEU.pl ADMINtest.devADMIN.nbest.SMatxinT.eutradDIS
+
+(amb el -b 0 sembla que n'hi ha prou)
+moses -f moses.devADMIN.ini -b 0 -s 10000 -n-best-list  ADMINtest.devADMIN.nbest.SMatxinT.eutrad  10000 distinct  -report-all-factors < test.ADMINtest.SMatxinT.1 
+
+moses -f moses.devEITB.ini -b 0 -s 10000  -n-best-list  ADMINtest.devEITB.nbest.SMatxinT.eutrad  10000 distinct < test.ADMINtest.SMatxinT.1 
+
+moses -f moses.devADMIN.ini -b 0 -s 10000 -include-alignment-in-n-best  -n-best-list  EITBtest.devADMIN.nbestSEG.SMatxinT.eutrad  10000 distinct < test.EITBtest.2011_05_26.SMatxinT.1
+
+
+/home/cristina/pln/devSoft/emt/perl/bin/oracleBLEU.pl ADMINtest.devADMIN.nbest.SMatxinT.eutrad
+/home/cristina/pln/devSoft/emt/perl/bin/oracleBLEU.pl ADMINtest.devEITB.nbest.SMatxinT.eutrad
+
+/home/cristina/pln/devSoft/emt/perl/bin/oracleBLEU.pl EITBtest.devADMIN.nbest.SMatxinT.eutrad
+/home/cristina/pln/devSoft/emt/perl/bin/oracleBLEU.pl EITBtest.devEITB.nbest.SMatxinT.eutrad
+
+/home/cristina/pln/devSoft/emt/perl/bin/oracleBLEU.pl NEWStest.devADMIN.nbest.SMatxinT.eutrad
+/home/cristina/pln/devSoft/emt/perl/bin/oracleBLEU.pl NEWStest.devEITB.nbest.SMatxinT.eutrad
+
+# TEST
+
+moses -f moses.devADMIN.ini  -T  -constraint  ADMINtest.devADMIN.SMatxinT.eutrad < test.ADMINtest.2011_05_26.SMatxinT.1 > ADMINtest.devADMIN.SMatxinT.eutradTRAD &> outputSMatxinT
+
+traduir i traduir amb constrain, la diferencia son les que fara malament
+moses -f moses.devADMIN.ini   -constraint  ADMINtest.devADMIN.SMatxinT.eutrad < test.ADMINtest.2011_05_26.SMatxinT.1 > ADMINtest.devADMIN.SMatxinT.eutradTRAD 
+
+moses -f moses.devADMINlabel.ini  -report-all-factors -constraint ADMINtest.devADMIN.SMatxinT.eutrad.correctes < test.ADMINtest.2011_05_26.SMatxinT.correctes > ADMINtest.devADMIN.SMatxinT.eutrad.correctesLABEL
+
+moses -f moses.devADMIN.ini  -report-segmentation  < test.ADMINtest.2011_05_26.SMatxinT.1 > ADMINtest.devADMIN.SMatxinT.eutradSEG
+
+
+# MIX
+
+perl /home/cristina/pln/devSoft/emt/perl/bin/joinParsers.pl ../testNEWS/NEWStest.devADMIN.nbest.SMatxinT.eutrad ../testNEWSmalt/NEWStest.devADMINmalt.nbest.SMatxinT.eutrad
+
+
+
+# IQMT confidence
+
+perl /home/cristina/soft/IQMT-2.0.2/bin/IQsetup  ULCsetup.config ULCevalCris.config
+
+0
+
+
